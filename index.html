@@ -8,6 +8,7 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
+    /* MAX-LEVEL RESET: Ensure the root elements fully fill the screen */
     html, body {
       margin: 0;
       padding: 0;
@@ -15,17 +16,21 @@
       font-family: 'Poppins', sans-serif;
       overflow: hidden; /* Prevent scrolling */
       color: #e0e0e0;
-      height: 100%; /* Ensure body uses full height */
+      height: 100%; 
+      width: 100%; 
     }
 
     .video-container {
-      /* Makes the video fill the entire viewport */
+      /* FORCED FULL SCREEN: Using position: fixed is the most reliable way to cover the viewport */
+      position: fixed; 
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
       background: #000;
       margin-top: 0;
       box-shadow: none;
-      position: relative;
+      z-index: 1; /* Ensure video is below the telegram button/popup */
     }
 
     video {
@@ -34,9 +39,10 @@
       object-fit: contain;
     }
 
+    /* CRITICAL FIX: Set iframe width and height to 100% to fill the container */
     .video-container iframe {
-      width: 500%;
-      height: 500%;
+      width: 100%;
+      height: 100%;
       border: none;
       display: block;
     }
@@ -54,7 +60,7 @@
         font-size: 16px;
         font-weight: 600;
         cursor: pointer;
-        z-index: 100;
+        z-index: 100; /* Ensure it is above the video */
         box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
         transition: transform 0.2s, background-color 0.2s, box-shadow 0.2s;
         display: flex;
