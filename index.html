@@ -43,137 +43,8 @@
     header:hover img {
       filter: drop-shadow(0 0 12px rgba(29, 185, 84, 0.5));
     }
-/* 🔔 Telegram Join Popup Styles (UPDATED FOR IMAGE DESIGN) */
-.popup-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 10002;
-}
+/* Removed Popup Styles for a cleaner layout */
 
-.popup-box {
-  width: 320px;
-  max-width: 90%; /* Added for better mobile support */
-  background: #1a1a1a; /* Darker solid background */
-  border: 1px solid rgba(255, 165, 0, 0.4); /* Orange border */
-  border-radius: 20px;
-  backdrop-filter: none;
-  /* Strong orange glow effect */
-  box-shadow: 0 0 10px rgba(255, 165, 0, 0.6), 0 0 40px rgba(255, 140, 0, 0.4);
-  padding: 2.5rem 1.5rem; /* Increased vertical padding */
-  text-align: center;
-  animation: fadeIn 0.5s ease forwards;
-  position: relative;
-}
-
-@keyframes fadeIn {
-  from { transform: scale(0.95); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
-.popup-header {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #ff9900; /* Solid orange color for header */
-  margin-bottom: 0.4rem;
-  text-shadow: 0 0 10px rgba(255, 153, 0, 0.8); /* Stronger orange glow for text */
-  background: none; 
-  -webkit-background-clip: unset;
-  -webkit-text-fill-color: unset;
-}
-
-.popup-subtitle {
-  font-size: 1rem;
-  color: #d0d0d0; /* Slightly brighter text */
-  margin-bottom: 1.5rem; /* Increased margin */
-}
-
-.popup-subtitle strong {
-  color: #ffaa00; /* Highlight the channel name in orange */
-  font-weight: 600;
-}
-
-.popup-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-}
-
-.popup-buttons a {
-  text-decoration: none;
-}
-
-.popup-btn {
-  padding: 0.8rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 1rem;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.35s ease;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.popup-btn::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(0,255,255,0.3), rgba(255,0,255,0.2));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.popup-btn:hover::after {
-  opacity: 1;
-}
-
-/* Updated Join Button: Solid Orange/Gold */
-.join-btn {
-  background: #ff9900; /* Solid Orange/Gold */
-  box-shadow: 0 0 15px rgba(255, 153, 0, 0.7);
-  border: none;
-}
-
-.join-btn:hover {
-  background: #ffaa33; /* Slightly lighter on hover */
-  box-shadow: 0 0 20px rgba(255, 153, 0, 1);
-}
-
-/* Updated Already Joined Button: Dark with subtle orange glow */
-.already-btn {
-  background: #333333; /* Dark background */
-  color: #fff;
-  border: 1px solid rgba(255, 165, 0, 0.3);
-  box-shadow: inset 0 0 5px rgba(255, 165, 0, 0.2);
-}
-
-.already-btn:hover {
-  background: #444444; /* Slightly lighter dark on hover */
-  box-shadow: inset 0 0 8px rgba(255, 165, 0, 0.4);
-}
-
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 1.3rem;
-  color: #ff9900; /* Updated close button color */
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.close-btn:hover {
-  color: #ff00cc;
-}
     .video-container {
       width: 100vw;
       aspect-ratio: 16/9;
@@ -340,18 +211,7 @@
       background: rgba(29, 185, 84, 0.8);
       box-shadow: 0 0 20px rgba(29, 185, 84, 0.3);
     }
-    .counter-box {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.08);
-      padding: 12px;
-      border-radius: 16px;
-      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
-      margin-top: 1rem;
-    }
-    
-    .counter-box img {
-      height: 48px;
-    }
+
     .plyr__control--overlaid:hover {
       background: #1db954;
       transform: scale(1.05);
@@ -367,31 +227,7 @@
   </style>
 </head>
 <body>
-<!-- Visitor Counter Popup -->
-<div class="popup-overlay" id="visitorPopup" style="display:none;">
-  <div class="popup-box">
-    <button class="close-btn" onclick="closeVisitorPopup()">×</button>
-    <div class="popup-header">Total Visitors</div>
-    <div class="popup-subtitle">Users Live On Web</div>
-    <div class="counter-box">
-      <img src="https://visit-counter.vercel.app/counter.png?page=allrounder.com&s=40&c=00ff00&bg=00000000&no=10&ff=digi&tb=&ta=" alt="Visitor Count" />
-    </div>
-  </div>
-</div>
-<!-- Telegram Join Popup (UPDATED DESIGN AND TEXT) -->
-<div class="popup-overlay" id="popup">
-  <div class="popup-box">
-    <button class="close-btn" onclick="closePopup()">×</button>
-    <div class="popup-header">Support Us!</div>
-    <!-- Subtitle updated to include channel tag and full description -->
-    <div class="popup-subtitle">Join our Telegram channel <strong>@cricketcorner</strong> for instant updates, highlights, and exclusive links.</div>
-    <div class="popup-buttons">
-      <!-- Link: https://t.me/The_Cricket_Corner -->
-      <a href="https://t.me/The_Cricket_Corner" target="_blank" class="popup-btn join-btn">Join Now</a>
-      <button class="popup-btn already-btn" onclick="closePopup()">Already Joined</button>
-    </div>
-    </div>
-</div>
+    
   <header>
 <span class="material-icons menu-icon" onclick="toggleSidebar()">menu</span>
     <img src="https://i.ibb.co/FqkV5v5y/Picsart-25-06-21-13-44-20-140.png" alt="Logo">
@@ -410,7 +246,6 @@
   <a href="https://t.me/The_Cricket_Corner" target="_blank"> Join Our Telegram</a>
   <a href="https://t.me/The_Cricket_Corner" target="_blank"> Contact Us</a>
   <a href="https://t.me/The_Cricket_Corner" target="_blank">Copyright</a>
-<a href="#" onclick="showVisitorPopup()">Total Visitor</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
 
@@ -450,7 +285,8 @@
         const m3u8Url = data.stream_url;
         const video = document.getElementById('player');
 
-        if (Hls.isSupported()) {
+        // Note: This HLS/Plyr integration is for a native <video> element, but the current stream uses an iframe.
+        if (video && Hls.isSupported()) {
           const hls = new Hls();
           hls.loadSource(m3u8Url);
           hls.attachMedia(video);
@@ -471,7 +307,7 @@
             });
             video.play();
           });
-        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        } else if (video && video.canPlayType('application/vnd.apple.mpegurl')) {
           video.src = m3u8Url;
           video.addEventListener('loadedmetadata', () => {
             new Plyr(video, {
@@ -480,13 +316,10 @@
             });
             video.play();
           });
-        } else {
-          alert("Your browser does not support HLS.");
         }
       })
       .catch(err => {
         console.error('Failed to load stream:', err);
-        alert('Failed to load stream.');
       });
 
     function switchTab(tabId) {
@@ -499,24 +332,6 @@
 function toggleSidebar() {
     document.getElementById('sidebar').classList.toggle('open');
     document.getElementById('overlay').classList.toggle('show');
-  }
-function closePopup() {
-  document.getElementById('popup').style.display = 'none';
-}
-function showVisitorPopup() {
-    const popup = document.getElementById("visitorPopup");
-    popup.style.display = "flex";
-    setTimeout(() => {
-      popup.querySelector('.popup-box').style.opacity = '1';
-    }, 10);
-  }
-
-  function closeVisitorPopup() {
-    const popup = document.getElementById("visitorPopup");
-    popup.querySelector('.popup-box').style.opacity = '0';
-    setTimeout(() => {
-      popup.style.display = "none";
-    }, 300);
   }
   </script>
 </body>
